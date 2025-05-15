@@ -18,7 +18,7 @@ export const navigation = [
   {
     title: 'Protocol',
     links: [
-      { title: 'Overview', href: '/docs/protocol' },//
+      { title: 'Overview', href: '/docs/protocol' },
       { title: 'Asset specification', href: '/docs/protocol/asset' },
       { title: 'Pricing and skew adjustments', href: '/docs/protocol/skew' },
       { title: 'Fees', href: '/docs/protocol/fees' },
