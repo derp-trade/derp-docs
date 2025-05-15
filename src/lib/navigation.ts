@@ -24,9 +24,9 @@ export const navigation = [
       { title: 'Fees', href: '/docs/protocol/fees' },//
       { title: 'AMM', href: '/docs/protocol/amm' },//
       { title: 'Order types', href: '/docs/protocol/orders' },//
-      { title: 'Margin', href: '/docs/protocol/margin' },//
+      { title: 'Margin', href: '/docs/protocol/margin' },
       { title: 'Liquidation', href: '/docs/protocol/liquidation' },//
-      { title: 'Notional and claimable value', href: '/docs/protocol/value' },//
+      { title: 'Notional and claimable value', href: '/docs/protocol/value' },
     ],
   },
   {
