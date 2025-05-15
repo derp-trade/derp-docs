@@ -11,9 +11,9 @@ export const navigation = [
   {
     title: 'Onboarding',
     links: [
-      { title: 'Application', href: '/docs/onboarding/app' },//
-      { title: 'Community', href: '/docs/onboarding/community' },//
-    ]
+      { title: 'Using the app', href: '/docs/onboarding/app' },
+      { title: 'Community', href: '/docs/onboarding/community' },
+    ],
   },
   {
     title: 'Protocol',
@@ -27,13 +27,13 @@ export const navigation = [
       { title: 'Margin', href: '/docs/protocol/margin' },//
       { title: 'Liquidation', href: '/docs/protocol/liquidation' },//
       { title: 'Notional and claimable value', href: '/docs/protocol/value' },//
-    ]
+    ],
   },
   {
     title: 'Risk',
     links: [
       { title: 'Risk overview', href: '/docs/risk' },//
       { title: 'Preventing drain', href: '/docs/risk/drain' },//
-    ]
+    ],
   },
 ];
