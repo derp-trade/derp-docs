@@ -27,4 +27,4 @@ Claimable value is used when:
 - pricing a position for liquidation,
 - closing a position;
 
-because it determines the amount of assets that the user can get if they close their position immediately.
+because it determines the amount of assets that the user can get if they close their position immediately. This mechanism is based on **dynamic socialized PnL** used in other derivatives protocols.
