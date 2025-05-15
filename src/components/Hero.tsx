@@ -47,15 +47,16 @@ export function Hero() {
             />
             <div className="relative">
               <p className="inline bg-linear-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Leverage any token.
+                Leverage Any Asset.
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                Derps are AMM-based assets based on perpetual futures,
-                that allow users to long and short any token with leverage.
+                The first perpetual trading protocol designed for any on-chain 
+                asset, enabling leveraged long and short positions without 
+                requiring high volume or liquidity.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
                 <Button href="/">Get started</Button>
-                <Button href="/" variant="secondary">
+                <Button href="https://github.com/derp-trade" variant="secondary">
                   View on GitHub
                 </Button>
               </div>
