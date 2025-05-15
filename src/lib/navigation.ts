@@ -20,7 +20,7 @@ export const navigation = [
     links: [
       { title: 'Overview', href: '/docs/protocol' },//
       { title: 'Asset specification', href: '/docs/protocol/asset' },//
-      { title: 'Skew scale', href: '/docs/protocol/skew' },//
+      { title: 'Skew adjustments', href: '/docs/protocol/skew' },//
       { title: 'Fees', href: '/docs/protocol/fees' },//
       { title: 'AMM', href: '/docs/protocol/amm' },//
       { title: 'Order types', href: '/docs/protocol/orders' },//
@@ -32,8 +32,8 @@ export const navigation = [
   {
     title: 'Risk',
     links: [
-      { title: 'Risk overview', href: '/docs/risk' },//
-      { title: 'Preventing drain', href: '/docs/risk/drain' },//
+      { title: 'Risk overview', href: '/docs/risk' },
+      { title: 'Preventing drain', href: '/docs/risk/drain' },
     ],
   },
 ];
