@@ -22,7 +22,7 @@ export const navigation = [
       { title: 'Asset specification', href: '/docs/protocol/asset' },
       { title: 'Skew adjustments', href: '/docs/protocol/skew' },//
       { title: 'Fees', href: '/docs/protocol/fees' },
-      { title: 'AMM', href: '/docs/protocol/amm' },//
+      { title: 'AMM', href: '/docs/protocol/amm' },
       { title: 'Order types', href: '/docs/protocol/orders' },
       { title: 'Margin', href: '/docs/protocol/margin' },
       { title: 'Liquidation', href: '/docs/protocol/liquidation' },
