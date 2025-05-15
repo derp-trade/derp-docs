@@ -25,7 +25,7 @@ export const navigation = [
       { title: 'AMM', href: '/docs/protocol/amm' },//
       { title: 'Order types', href: '/docs/protocol/orders' },//
       { title: 'Margin', href: '/docs/protocol/margin' },
-      { title: 'Liquidation', href: '/docs/protocol/liquidation' },//
+      { title: 'Liquidation', href: '/docs/protocol/liquidation' },
       { title: 'Notional and claimable value', href: '/docs/protocol/value' },
     ],
   },
