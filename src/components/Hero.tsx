@@ -1,24 +1,24 @@
-import { Fragment } from 'react'
-import Image from 'next/image'
-import clsx from 'clsx'
-import { Highlight } from 'prism-react-renderer'
+import { Fragment } from 'react';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { Highlight } from 'prism-react-renderer';
 
-import { Button } from '@/components/Button'
-import { HeroBackground } from '@/components/HeroBackground'
-import blurCyanImage from '@/images/blur-cyan.png'
-import blurIndigoImage from '@/images/blur-indigo.png'
+import { Button } from '@/components/Button';
+import { HeroBackground } from '@/components/HeroBackground';
+import blurCyanImage from '@/images/blur-cyan.png';
+import blurIndigoImage from '@/images/blur-indigo.png';
 
-const codeLanguage = 'javascript'
+const codeLanguage = 'javascript';
 const code = `import { DerpsClient } from "derps-sdk";
 const derps = new DerpsClient({ apiKey: process.env.DERPS_KEY });
 const sizeUSD = 1000;
 await derps.openPosition({ side: "long", token: "PEPE", sizeUSD, leverage: 5 });
-console.log("Position opened, txId:", derps.lastTxId());`
+console.log("Position opened, txId:", derps.lastTxId());`;
 
 const tabs = [
   { name: 'index.js', isActive: true },
   { name: 'package.json', isActive: false },
-]
+];
 
 function TrafficLightsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -27,7 +27,7 @@ function TrafficLightsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
       <circle cx="21" cy="5" r="4.5" />
       <circle cx="37" cy="5" r="4.5" />
     </svg>
-  )
+  );
 }
 
 export function Hero() {
@@ -50,12 +50,16 @@ export function Hero() {
                 Leverage Any Asset.
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                The first perpetual trading protocol designed for any on-chain 
-                asset, enabling leveraged long and short positions without 
+                The first perpetual trading protocol designed for any on-chain
+                asset, enabling leveraged long and short positions without
                 requiring high volume or liquidity.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="/">Get started</Button>
+                <Button
+                  onClick={() => {
+                    window.scrollBy({ top: window.innerHeight ? window.innerHeight / 2.5 : 200, behavior: 'smooth' });
+                  }}
+                >Get started</Button>
                 <Button href="https://github.com/derp-trade" variant="secondary">
                   View on GitHub
                 </Button>
@@ -170,5 +174,5 @@ export function Hero() {
         </div>
       </div>
     </div>
-  )
+  );
 }

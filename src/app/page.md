@@ -2,111 +2,68 @@
 title: Getting started
 ---
 
-Learn how Derps are structured, and how to use them. {% .lead %}
+Derp.trade is a derivatives exchange that lists a novel kind of asset - a DERP (decentralized perpetual.) Learn how DERPs are structured, and how to use them. {% .lead %}
 
 {% quick-links %}
 
-{% quick-link title="Installation" icon="installation" href="/" description="Step-by-step guides to setting up your system and installing the library." /%}
+{% quick-link title="Trading" icon="presets" href="/docs/onboarding/app" description="Learn how to trade on the devnet version of derp.trade." /%}
 
-{% quick-link title="Architecture guide" icon="presets" href="/" description="Learn how the internals work and contribute." /%}
+{% quick-link title="Asset structure" icon="theming" href="/docs/protocol" description="Get an overview of how DERPs are structured and how they work." /%}
 
-{% quick-link title="Plugins" icon="plugins" href="/" description="Extend the library with third-party plugins or write your own." /%}
+{% quick-link title="Community" icon="plugins" href="/docs/onboarding/community" description="Join the community and contribute to the project." /%}
 
-{% quick-link title="API reference" icon="theming" href="/" description="Learn to easily customize and modify your app's visual design to fit your brand." /%}
+{% quick-link title="Risk" icon="warning" href="/docs/risk" description="Learn the risks bending the protocol and how they are mitigated." /%}
 
 {% /quick-links %}
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste.
+Right now, derp.trade is in a beta phase. We have released a devnet version of the app, and are working on a mainnet version.
 
 ---
 
-## Quick start
+## What are DERPs?
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+A decentralized perpetual (DERP) is a new kind of asset based on perpetual futures (perps.) They are designed to support a wider range of assets, including those that are illiquid or have low trading volume.
 
-### Installing dependencies
+### Comparison to perps
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+Classic perps are a type of derivative that allows traders to speculate on the future price of an asset. They are typically used for highly liquid assets, such as cryptocurrencies or stocks.
 
-```shell
-npm install @tailwindlabs/cache-advance
-```
+However, perp markets require a high level of liquidity to function properly. This is because they rely on a **centralized order book** to match buyers and sellers. If there are not enough buyers or sellers in the market, the price of the asset can become very volatile or it might not be possible to execute trades at all.
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+Instead of an order book, DERPs use an automated market maker (**AMM**) to provide liquidity. This means that traders can buy and sell DERPs at any time.
 
-{% callout type="warning" title="Oh no! Something bad happened!" %}
-This is what a disclaimer message looks like. You might want to include inline `code` in it. Or maybe you’ll want to include a [link](/) in it. I don’t think we should get too carried away with other scenarios like lists or tables — that would be silly.
+This switch necessitates some changes to the way that DERPs are structured. It's no longer important to control the mark price, which perps do with funding rates, since the AMM can simply set the price of the asset.
+
+Instead, DERPs are built to control the **AMM skew**. This is the difference between the value of long and short positions in the AMM. The larger the skew, the higher the risk that one side of the market will not have coverage for the other side. This consideration determines the funding rates and asset prices.
+
+{% callout title="Learn more about skew" %}
+Controlling AMM skew is the most important part of the DERP protocol. Having a similar value of long and short positions in a market is the only way to ensure that the AMM can cover all positions.
 {% /callout %}
 
-### Configuring the library
+### Unique characteristics
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+DERPs are intended to work well even in illiquid markets. Moreover, it's likely that most derp.trade markets will start as illiquid. This means that the AMM will be skewed in one direction or the other from the start. Keeping markets stable under those conditions requires that the AMM cannot be liquidated.
 
-```js
-// cache-advance.config.js
-export default {
-  strategy: 'predictive',
-  engine: {
-    cpus: 12,
-    backups: ['./storage/cache.wtf'],
-  },
-}
-```
-
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
-
-{% callout title="You should know!" %}
-This is what a disclaimer message looks like. You might want to include inline `code` in it. Or maybe you’ll want to include a [link](/) in it. I don’t think we should get too carried away with other scenarios like lists or tables — that would be silly.
+{% callout type="warning" title="AMM liquidations" %}
+Unlike perps, where market makers are just regular traders, the AMM is special in that it cannot be liquidated. If there is not enough liquidity in the AMM to cover the user's unrealized PnL, the AMM will temporarily scale down its payouts. This is similar to how *price impact* works in CPMMs.
 {% /callout %}
 
----
-
-## Basic usage
-
-Praesentium laudantium magni. Consequatur reiciendis aliquid nihil iusto ut in et. Quisquam ut et aliquid occaecati. Culpa veniam aut et voluptates amet perspiciatis. Qui exercitationem in qui. Vel qui dignissimos sit quae distinctio.
-
-### Your first cache
-
-Minima vel non iste debitis. Consequatur repudiandae et quod accusamus sit molestias consequatur aperiam. Et sequi ipsa eum voluptatibus ipsam. Et quisquam ut.
-
-Qui quae esse aspernatur fugit possimus. Quam sed molestiae temporibus. Eum perferendis dignissimos provident ea et. Et repudiandae quasi accusamus consequatur dolore nobis. Quia reiciendis necessitatibus a blanditiis iste quia. Ut quis et amet praesentium sapiente.
-
-Atque eos laudantium. Optio odit aspernatur consequuntur corporis soluta quidem sunt aut doloribus. Laudantium assumenda commodi.
-
-### Clearing the cache
-
-Vel aut velit sit dolor aut suscipit at veritatis voluptas. Laudantium tempore praesentium. Qui ut voluptatem.
-
-Ea est autem fugiat velit esse a alias earum. Dolore non amet soluta eos libero est. Consequatur qui aliquam qui odit eligendi ut impedit illo dignissimos.
-
-Ut dolore qui aut nam. Natus temporibus nisi voluptatum labore est ex error vel officia. Vero repellendus ut. Suscipit voluptate et placeat. Eius quo corporis ab et consequatur quisquam. Nihil officia facere dolorem occaecati alias deleniti deleniti in.
-
-### Adding middleware
-
-Officia nobis tempora maiores id iusto magni reprehenderit velit. Quae dolores inventore molestiae perspiciatis aut. Quis sequi officia quasi rem officiis officiis. Nesciunt ut cupiditate. Sunt aliquid explicabo enim ipsa eum recusandae. Vitae sunt eligendi et non beatae minima aut.
-
-Harum perferendis aut qui quibusdam tempore laboriosam voluptatum qui sed. Amet error amet totam exercitationem aut corporis accusantium dolorum. Perspiciatis aut animi et. Sed unde error ut aut rerum.
-
-Ut quo libero aperiam mollitia est repudiandae quaerat corrupti explicabo. Voluptas accusantium sed et doloribus voluptatem fugiat a mollitia. Numquam est magnam dolorem asperiores fugiat. Soluta et fuga amet alias temporibus quasi velit. Laudantium voluptatum perspiciatis doloribus quasi facere. Eveniet deleniti veniam et quia veritatis minus veniam perspiciatis.
+DERPs also have special risk characteristics. Because smaller tokens are at risk of market manipulation, the protocol never mixes liquidity between different assets. This affects risk in two ways:
+1. There is no **protocol risk.** Traders on one market cannot affect another market. This is an improvement over perps, where the market maker's bankruptcy in one market can affect the entire protocol.
+2. There is more **single asset risk.** Because the AMM is never liquidated, the protocol cannot socialize the risk of a single asset. This means that if a trader has a large position in a single asset, there is no guarantee that the AMM will be able to cover their unrealized PnL.
 
 ---
 
 ## Getting help
 
-Consequuntur et aut quisquam et qui consequatur eligendi. Necessitatibus dolorem sit. Excepturi cumque quibusdam soluta ullam rerum voluptatibus. Porro illo sequi consequatur nisi numquam nisi autem. Ut necessitatibus aut. Veniam ipsa voluptatem sed.
+The derp.trade exchange is under active development. We are constantly working to improve the protocol, and we welcome feedback from the community.
 
 ### Submit an issue
 
-Inventore et aut minus ut voluptatem nihil commodi doloribus consequatur. Facilis perferendis nihil sit aut aspernatur iure ut dolores et. Aspernatur odit dignissimos. Aut qui est sint sint.
+If you find a bug or have a suggestion for improvement, please submit an issue on our [docs GitHub repository](https://github.com/derp-trade/derp-docs/issues).
 
-Facere aliquam qui. Dolorem officia ipsam adipisci qui molestiae. Error voluptatem reprehenderit ex.
-
-Consequatur enim quia maiores aperiam et ipsum dicta. Quam ut sit facere sit quae. Eligendi veritatis aut ut veritatis iste ut adipisci illo.
+Any issues with how the protocol works should be directed to the docs repository. Bugs with the app and UX improvements should be directed to the [app repository](https://github.com/derp-trade/derp-app/issues).
 
 ### Join the community
 
-Praesentium facilis iste aliquid quo quia a excepturi. Fuga reprehenderit illo sequi voluptatem voluptatem omnis. Id quia consequatur rerum consectetur eligendi et omnis. Voluptates iusto labore possimus provident praesentium id vel harum quisquam. Voluptatem provident corrupti.
-
-Eum et ut. Qui facilis est ipsa. Non facere quia sequi commodi autem. Dicta autem sit sequi omnis impedit. Eligendi amet dolorum magnam repudiandae in a.
-
-Molestiae iusto ut exercitationem dolorem unde iusto tempora atque nihil. Voluptatem velit facere laboriosam nobis ea. Consequatur rerum velit ipsum ipsam. Et qui saepe consequatur minima laborum tempore voluptatum et. Quia eveniet eaque sequi consequatur nihil eos.
+We have a [Telegram group for beta testers](https://t.me/derpsbeta), where we post updates and discuss the protocol. We also run an [X profile](https://x.com/derp_trade) sharing updates.
